@@ -1,11 +1,11 @@
-from os import join, dirname
+from os.path import join, dirname
 from setuptools import setup
 
 def read_text(fname):
     return open(join(dirname(__file__), fname)).read()
 
 setup(
-    name = 'Mycroft Brain Skill Services',
+    name = 'ext-mycroft_brain_skill_services',
     version = '0.0.1',
     author = 'Andrew Phillips',
     author_email = 'skeledrew@gmail.com',
