@@ -6,7 +6,7 @@ An extension of the Mycroft [brain-skill](https://github.com/skeledrew/brain-ski
 
 ## Installation
 - Automatically done by brain-skill
-- Manually for skill dev: pip install git+https://github.com/skeledrew/mcbss.git
+- Manually for skill dev: `pip install git+https://github.com/skeledrew/mcbss.git`
 
 ## Usage
 - Ensure brain-skill is installed
