@@ -6,7 +6,7 @@ def read_text(fname):
 
 setup(
     name = 'mycroftbss',
-    version = '0.0.1',
+    version = '0.0.2',
     author = 'Andrew Phillips',
     author_email = 'skeledrew@gmail.com',
     description = ('An extension of the Mycroft brain-skill to aid communication with other skills'),

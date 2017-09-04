@@ -21,14 +21,15 @@
 
 from os.path import exists, dirname
 
+from mycroft.skills.core import MycroftSkill
 from mycroft.messagebus.message import Message
 
 
 def whisper(this=None, msg=None):
     # direct query to a particular skill/intent; should prob not register
-    if not find_brain(this): return False
     pattern = 'call intent (?P<Intent>.+) in skill (?P<Skill>.+) with data (?P<Data>.+)( and context )?(?P<Context>.+)?'
     if not this and not msg: return None #pattern
+    if not find_brain(this): return False
     data = {}
 
     if isinstance(msg, unicode) and re.search(pattern, msg):
@@ -58,8 +59,8 @@ def whisper(this=None, msg=None):
 
 def shout(this=None, utterances=None):
     # broadcast query so any skill/intent can handle
-    if not find_brain(this): return False
     if not this: return None  # prevent addition as ability
+    if not find_brain(this): return False
 
     if not type(utterances) in [str, list, unicode]:
         this.log.error('Expected string or list, got: {} which is {}'.format(repr(utterances), str(type(utterances))[1:-1]))
@@ -81,8 +82,8 @@ def subscribe_intents():
     if not find_brain(skill): return False
     return True
 
-def find_brain(skill, quiet=False):
-    if not skill: return None
+def find_brain(skill=None, quiet=False):
+    if not isinstance(skill, MycroftSkill): return None
     bs_path = skill._dir.split('/')[:-1]
     bs_path = '/'.join(bs_path) + '/brain-skill'
     skill.log.debug('brain-skill path = {}'.format(bs_path))
