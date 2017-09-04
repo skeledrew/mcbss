@@ -5,7 +5,7 @@ def read_text(fname):
     return open(join(dirname(__file__), fname)).read()
 
 setup(
-    name = 'ext-mycroft_brain_skill_services',
+    name = 'mycroftbss',
     version = '0.0.1',
     author = 'Andrew Phillips',
     author_email = 'skeledrew@gmail.com',
