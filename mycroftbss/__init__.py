@@ -82,6 +82,7 @@ def subscribe_intents():
     return True
 
 def find_brain(skill, quiet=False):
+    if not skill: return None
     bs_path = skill._dir.split('/')[:-1]
     bs_path = '/'.join(bs_path) + '/brain-skill'
     skill.log.debug('brain-skill path = {}'.format(bs_path))
